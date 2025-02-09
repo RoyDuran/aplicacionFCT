@@ -1,0 +1,155 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Alumno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="javascript.js"></script>
+</head>
+<body class="bg-light">
+    <div class="container p-4 col-5 bg-white border shadow">
+        <h2 class="text-primary">Perfil Alumno</h2>
+        <form id="form-alumno">
+            <div class="mb-3 row">
+                <label for="nombre" class="form-label col-5"><strong>Nombre:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="text" id="nombre" name="nombre" class="form-control" value="Juan Pérez" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('nombre')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="email" class="form-label col-5"><strong>Email:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="email" id="email" name="email" class="form-control" value="juan@example.com" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('email')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="telefono" class="form-label col-5"><strong>Teléfono:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="text" id="telefono" name="telefono" class="form-control" value="123456789" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('telefono')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="direccion" class="form-label col-5"><strong>Dirección:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="text" id="direccion" name="direccion" class="form-control" value="Calle Falsa 123" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('direccion')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="fecha_nacimiento" class="form-label col-5"><strong>Fecha de Nacimiento:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" value="2005-06-15" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('fecha_nacimiento')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="genero" class="form-label col-5"><strong>Género:</strong></label>
+                <div class="col-7 d-flex">
+                    <select class="form-select" id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                        <option value="preferir-no-decir">Prefiero no decirlo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="curso_id" class="form-label col-5"><strong>Curso:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="text" id="curso_id" name="curso_id" class="form-control" value="Matemáticas Avanzadas" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('curso_id')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="fase" class="form-label col-5"><strong>Fase de FCT:</strong></label>
+                <div class="col-7">
+                    <select id="fase" name="fase" class="form-select" onchange="mostrarEstado()">
+                        <option value="no_realiza_practicas">No realiza prácticas</option>
+                        <option value="pendiente_asignacion">Pendiente de asignación prácticas</option>
+                        <option value="asignado_empresa">Asignado a empresa</option>
+                        <option value="realizacion_convenio">Realización convenio</option>
+                        <option value="relacion_alumnos">Relación alumnos</option>
+                        <option value="programa_horario">Programa y horario</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Select para estados -->
+            <div id="realizacion_convenio" class="mb-3 row">
+                <label for="estado-convenio" class="form-label col-5"><strong>Estado:</strong></label>
+                <div class="col-7">
+                    <select name="estado-convenio" class="form-select" >
+                        <option value="pendiente_realizacion_convenio">Pendiente realización de convenio</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío de empresa</option>
+                        <option value="pendiente_firma_empresa">Pendiente firma de empresa</option>
+                        <option value="pendiente_firma_director">Pendiente firma director</option>
+                        <option value="pendiente_firma_comunidad">Pendiente firma Comunidad</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío empresa</option>
+                        <option value="enviado_a_empresa">Enviado a empresa</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="relacion_alumnos" class="mb-3 row">
+                <label for="estado-alumnos" class="form-label col-5"><strong>Estado:</strong></label>
+                <div class="col-7">
+                    <select id="estado-alumnos" name="estado-alumnos" class="form-select" >
+                        <option value="pendiente_realizacion_relacion">Pendiente realización de relación</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío de empresa</option>
+                        <option value="pendiente_firma_empresa">Pendiente firma de empresa</option>
+                        <option value="pendiente_firma_director">Pendiente firma director</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío empresa</option>
+                        <option value="enviado_a_empresa">Enviado a empresa</option>
+                    </select>
+                </div>         
+            </div>
+
+            <div id="programa_horario" class="mb-3 row">
+                <label for="estado-programa" class="form-label col-5"><strong>Estado:</strong></label>
+                <div class="col-7">
+                    <select id="estado-programa" name="estado-programa" class="form-select" >
+                        <option value="pendiente_realizacion_programa">Pendiente realización de programa</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío de empresa</option>
+                        <option value="pendiente_firma_empresa">Pendiente firma de empresa</option>
+                        <option value="pendiente_firma_tutor">Pendiente firma tutor de centro</option>
+                        <option value="pendiente_envio_empresa">Pendiente envío empresa</option>
+                        <option value="enviado_a_empresa">Enviado a empresa</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="fecha_ingreso" class="form-label col-5"><strong>Fecha de Ingreso:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="date" id="fecha_ingreso" name="fecha_ingreso" class="form-control" value="2020-09-01" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('fecha_ingreso')">Editar</button>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="centro" class="form-label col-5"><strong>Centro:</strong></label>
+                <div class="col-7 d-flex">
+                    <input type="text" id="centro" name="centro" class="form-control" value="Escuela A" readonly />
+                    <button type="button" class="btn btn-light btn-sm ms-2" onclick="editar('centro')">Editar</button>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Guardar Cambios</button>
+            <button type="submit" class="btn btn-danger mt-3">Eliminar alumno</button>
+        </form>
+    </div>
+
+    <script>
+        window.onload=mostrarEstado;
+    </script>
+</body>
+</html>
