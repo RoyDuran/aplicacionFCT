@@ -21,13 +21,13 @@ Esta aplicación permite gestionar las prácticas de Formación en Centros de Tr
 1️⃣ Clona este repositorio en tu entorno de desarrollo:
 
 ```bash
-   git clone https://github.com/R/gestion-fct.git
+   git clone https://github.com/aplicacionFCT.git
 ```
 
 2️⃣ Accede al directorio del proyecto:
 
 ```bash
-   cd gestion-fct
+   cd aplicacionFCT
 ```
 
 3️⃣ Instala las dependencias del backend y frontend:
