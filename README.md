@@ -45,7 +45,6 @@ Esta aplicación permite gestionar las prácticas de Formación en Centros de Tr
 DB_HOST=localhost
 DB_USER=usuario
 DB_PASS=contraseña
-JWT_SECRET=secreto_seguro
 ```
 
 - Para el frontend, configura el archivo `.env` en la carpeta `frontend`:
