@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Profesor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <form class="container bg-white col-md-5 border px-5 py-4 shadow" id="profesores">
+        <h3 class="text-primary">Formulario de inscripcion de profesor</h3>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required
+                pattern=^[A-Za-z]{3,}(\s[A-Za-z]{3,}){2,3}$ placeholder="Juan Pérez Sánchez">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required
+                placeholder="juan.perez@ejemplo.com">
+        </div>
+
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Número de Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" pattern="^[\d]{9}$"
+                placeholder="612345678">
+        </div>
+
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <textarea class="form-control" id="direccion" name="direccion" rows="3"
+                placeholder="Calle Falsa 123, Ciudad, 28001"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+        </div>
+
+        <div class="mb-3">
+            <label for="genero" class="form-label">Género</label>
+            <select class="form-select" id="genero" name="genero">
+                <option value="">Seleccione...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+                <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="rol" class="form-label">Rol</label>
+            <select class="form-select" id="rol" name="rol" required>
+                <option value="">Seleccione un rol...</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Coordinador">Coordinador</option>
+                <option value="Jefe de Departamento">Jefe de Departamento</option>
+            </select>
+        </div>
+
+        <label for="departamento">Departamento o Área de Especialización:</label>
+        <select class="form-select mb-3" id="departamento" name="departamento" required>
+            <option value="">Seleccionar</option>
+            <option value="matematicas">Matemáticas</option>
+            <option value="lengua">Lengua</option>
+            <option value="ciencias_sociales">Ciencias Sociales</option>
+        </select>
+
+        <label for="tipo_contrato">Tipo de Contrato:</label>
+        <select class="form-select mb-3" id="tipo_contrato" name="tipo_contrato" required>
+            <option value="">Seleccionar</option>
+            <option value="tiempo_completo">Tiempo Completo</option>
+            <option value="medio_tiempo">Medio Tiempo</option>
+            <option value="sustituto">Sustituto</option>
+        </select>
+
+        <label for="fecha_ingreso">Fecha de Ingreso:</label>
+        <input type="date" class="form-control mb-3" id="fecha_ingreso" name="fecha_ingreso" required>
+
+        <label for="estado">Estado del Profesor:</label>
+        <select id="estado" class="form-select mb-3" name="estado" required>
+            <option value="activo">Activo</option>
+            <option value="en_licencia">En licencia</option>
+            <option value="inactivo">Inactivo</option>
+        </select>
+
+        <label for="foto_perfil">Foto de Perfil:</label>
+        <input class="form-control mb-3" type="file" id="foto_perfil" name="foto_perfil" accept="image/*">
+
+        <label for="notas">Notas Adicionales:</label>
+        <textarea id="notas" class="form-control mb-3" name="notas" rows="4" cols="50"></textarea>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" class="form-control mb-3" id="contrasena" name="contraseña" required minlength="8"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+
+        <label for="confirmar_contrasena">Confirmar Contraseña:</label>
+        <input type="password" class="form-control mb-3" id="confirmarContraseña" name="confirmarContraseña" required>
+        <span id="errorContraseña" class="alert alert-danger" style="display: none;">Las contraseñas no coinciden</span>
+
+        <label for="centro">Centro:</label>
+        <select id="centro" class="form-control mb-3" name="centro" required>
+            <option value="escuela_secundaria_a">Escuela Secundaria A</option>
+            <option value="colegio_abc">Colegio ABC</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+    <script>
+        var contraseñaConfirmada;
+        document.getElementById("confirmarContraseña").addEventListener("input",()=>{
+            let contraseña=document.getElementById("contrasena").value;
+            let confirmar=document.getElementById("confirmarContraseña").value;
+            let error=document.getElementById("errorContraseña");
+            if (contraseña===confirmar) {
+                error.style.display="none";
+                contraseñaConfirmada=true;
+            }else{
+                error.style.display="block";
+                contraseñaConfirmada=false;
+            } 
+        })
+        document.getElementById("profesores").addEventListener("submit",(event)=>{
+            if (!contraseñaConfirmada){
+                alert("Las contraseñas no coinciden");
+                event.preventDefault();
+            }
+        })
+    </script>
+</body>
+
+</html>

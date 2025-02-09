@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de inscripcion de alumno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <form class="container bg-white col-md-5 border px-5 py-4 shadow">
+        <h3 class="text-primary">Registrar alumno</h3>
+
+      <!-- Campo: Nombre Completo, usare un pattern que comprueba que haya uno o dos nombres y dos apellidos
+       es valido: nombre1 apellido1 apellido2
+       y:         nombre1 nombre2 apellido1 apellido2 -->
+      <div class="mb-3">
+        <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" id="nombreCompleto" pattern=^[A-Za-z]{3,}(\s[A-Za-z]{3,}){2,3}$ placeholder="Ej. María López Pérez" required>
+      </div>
+
+      <!-- Campo: Fecha de Nacimiento -->
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" required>
+      </div>
+
+      <!-- Campo: Género -->
+      <div class="mb-3">
+        <label for="genero" class="form-label">Género</label>
+        <select class="form-select" id="genero">
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+          <option value="preferir-no-decir">Prefiero no decirlo</option>
+        </select>
+      </div>
+
+      <!-- Campo: Correo Electrónico -->
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="correo" placeholder="Ej. maria.lopez@ejemplo.com">
+      </div>
+
+      <!-- Campo: Número de Teléfono -->
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Número de Teléfono</label>
+        <input type="tel" class="form-control" id="telefono" placeholder="Ej. (+34) 612345678">
+      </div>
+
+      <!-- Campo: Dirección -->
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <textarea class="form-control" id="direccion" rows="3" placeholder="Ej. Calle Mayor 123, Ciudad, 28001"></textarea>
+      </div>
+
+      <!-- Campo: Centro Educativo -->
+      <div class="mb-3">
+        <label for="centroEducativo" class="form-label">Centro Educativo</label>
+        <select class="form-select" id="centroEducativo">
+          <option value="escuela-a">Escuela Secundaria A</option>
+          <option value="colegio-abc">Colegio ABC</option>
+        </select>
+      </div>
+
+      <!-- Campo: Grado/Curso -->
+      <div class="mb-3">
+        <label for="gradoCurso" class="form-label">Grado/Curso</label>
+        <select class="form-select" id="gradoCurso">
+          <option value="1-eso">1º de ESO</option>
+          <option value="2-bachillerato">2º de Bachillerato</option>
+          <option value="3-eso">3º de ESO</option>
+        </select>
+      </div>
+
+      <!-- Campo: Tutor -->
+      <div class="mb-3">
+        <label for="tutor" class="form-label">Tutor</label>
+        <select class="form-select" id="tutor">
+          <option value="carlos-rodriguez">Carlos Rodríguez</option>
+          <option value="ana-gomez">Ana Gómez</option>
+        </select>
+      </div>
+
+      <!-- Campo: Estado del Alumno -->
+      <div class="mb-3">
+        <label for="estadoAlumno" class="form-label">Estado del Alumno</label>
+        <select class="form-select" id="estadoAlumno">
+          <option value="activo">Activo</option>
+          <option value="suspendido">Suspendido</option>
+          <option value="graduado">Graduado</option>
+        </select>
+      </div>
+
+      <!-- Campo: Fecha de Inscripción -->
+      <div class="mb-3">
+        <label for="fechaInscripcion" class="form-label">Fecha de Inscripción</label>
+        <input type="date" class="form-control" id="fechaInscripcion" required>
+      </div>
+
+      <!-- Campo: Foto de Perfil -->
+      <div class="mb-3">
+        <label for="fotoPerfil" class="form-label">Foto de Perfil</label>
+        <input type="file" class="form-control" id="fotoPerfil">
+      </div>
+
+      <!-- Campo: Notas Académicas -->
+      <div class="mb-3">
+        <label for="notasAcademicas" class="form-label">Notas Académicas</label>
+        <input type="text" class="form-control" id="notasAcademicas" placeholder="Ej. 8.5 o A">
+      </div>
+
+      <!-- Campo: Observaciones/Comentarios -->
+      <div class="mb-3">
+        <label for="observaciones" class="form-label">Observaciones/Comentarios</label>
+        <textarea class="form-control" id="observaciones" rows="3" placeholder="Ej. Alumno con excelente desempeño en matemáticas..."></textarea>
+      </div>
+
+      <!-- Botón de Enviar -->
+      <button type="submit" class="btn btn-success">Registrar Alumno</button>
+    </form>
+  </div>
+
+  <!-- Incluye el script de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
